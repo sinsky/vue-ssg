@@ -10,7 +10,8 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
 
-    "moduleResolution": "Bundler"
+    "moduleResolution": "Bundler",
+    "types": ["unplugin-vue-router/client"]
   },
   "include": [
     "src/**/*.ts",
