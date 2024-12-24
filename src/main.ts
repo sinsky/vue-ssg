@@ -1,5 +1,9 @@
-import { createApp } from "vue";
 import "./style.css";
 import App from "./App.vue";
+import { ViteSSG } from "vite-ssg";
 
-createApp(App).mount("#app");
+export const createApp = ViteSSG(
+  App,
+  { routes },
+  ({ app, router, routes, isClient, initialState }) => {},
+);
