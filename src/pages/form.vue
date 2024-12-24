@@ -39,7 +39,13 @@ const handleSubmit = (event: Event) => {
     style="display: flex; flex-direction: column; gap: 2rem"
     netlify
     @submit="handleSubmit"
+    netlify-honeypot="bot-field"
   >
+    <div class="hidden">
+      <label>
+        Don’t fill this out if you’re human: <input name="bot-field" />
+      </label>
+    </div>
     <div class="form-col">
       <label for="name">Name</label>
       <input type="text" name="name" id="name" />
