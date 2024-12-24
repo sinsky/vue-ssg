@@ -38,7 +38,6 @@ const handleSubmit = (event: Event) => {
     method="POST"
     style="display: flex; flex-direction: column; gap: 2rem"
     netlify
-    data-netlify="true"
     @submit="handleSubmit"
     netlify-honeypot="bot-field"
   >
