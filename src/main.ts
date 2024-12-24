@@ -1,9 +1,21 @@
 import "./style.css";
 import App from "./App.vue";
 import { ViteSSG } from "vite-ssg";
+import { createRouter, createWebHistory } from "vue-router";
+import { routes } from "vue-router/auto-routes";
+
+export const router = createRouter({
+  history: createWebHistory(),
+  routes,
+});
 
 export const createApp = ViteSSG(
+  // the root component
   App,
+  // vue-router options
   { routes },
-  ({ app, router, routes, isClient, initialState }) => {},
+  // function to have custom setups
+  ({ app, router, routes, isClient, initialState }) => {
+    // install plugins etc.
+  },
 );
