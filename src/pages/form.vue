@@ -21,7 +21,7 @@ const handleSubmit = (event: Event) => {
   const myForm = event.target as HTMLFormElement;
   const formData = new FormData(myForm) as any;
 
-  fetch(location.href, {
+  fetch("/", {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: new URLSearchParams(formData).toString(),
@@ -34,25 +34,32 @@ const handleSubmit = (event: Event) => {
 <template>
   <h1>Survey</h1>
   <form
-    name="demo survey"
+    name="demo-survey"
     method="POST"
     style="display: flex; flex-direction: column; gap: 2rem"
     netlify
+    data-netlify="true"
     @submit="handleSubmit"
     netlify-honeypot="bot-field"
   >
-    <div style="display: hidden">
+    <div hidden>
       <label>
         Don’t fill this out if you’re human: <input name="bot-field" />
       </label>
     </div>
     <div class="form-col">
       <label for="name">Name</label>
-      <input type="text" name="name" id="name" />
+      <input type="text" name="name" id="name" required />
     </div>
     <div class="form-col">
       <label for="message">Message</label>
-      <textarea name="message" id="message" cols="30" rows="10"></textarea>
+      <textarea
+        name="message"
+        id="message"
+        cols="30"
+        rows="10"
+        required
+      ></textarea>
     </div>
     <div class="form-last"><button type="submit">Submit</button></div>
   </form>
