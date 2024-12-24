@@ -1,11 +1,13 @@
 import "./style.css";
 import App from "./App.vue";
 import { ViteSSG } from "vite-ssg";
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createMemoryHistory } from "vue-router";
 import { routes } from "vue-router/auto-routes";
 
 export const router = createRouter({
-  history: createWebHistory(),
+  // TODO: createWebHistoryはエラーになるため、一時的にMemoryHistoryを利用する
+  // https://github.com/antfu-collective/vite-ssg/issues/417
+  history: createMemoryHistory(),
   routes,
 });
 
@@ -15,7 +17,7 @@ export const createApp = ViteSSG(
   // vue-router options
   { routes },
   // function to have custom setups
-  ({ app, router, routes, isClient, initialState }) => {
-    // install plugins etc.
-  },
+  // ({ app, router, routes, isClient, initialState }) => {
+  //   // install plugins etc.
+  // },
 );
