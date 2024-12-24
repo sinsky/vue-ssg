@@ -21,7 +21,7 @@ const handleSubmit = (event: Event) => {
   const myForm = event.target as HTMLFormElement;
   const formData = new FormData(myForm) as any;
 
-  fetch("/", {
+  fetch(location.href, {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: new URLSearchParams(formData).toString(),
