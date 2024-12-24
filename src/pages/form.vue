@@ -41,7 +41,7 @@ const handleSubmit = (event: Event) => {
     @submit="handleSubmit"
     netlify-honeypot="bot-field"
   >
-    <div class="hidden">
+    <div style="display: hidden">
       <label>
         Don’t fill this out if you’re human: <input name="bot-field" />
       </label>
